@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "~/components/App/App";
@@ -7,6 +8,14 @@ import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { theme } from "~/theme";
+
+axios.interceptors.request.use((config) => {
+  config.headers = {
+    ...config.headers,
+    "Ocp-Apim-Subscription-Key": import.meta.env.SUBSCRIPTION_KEY,
+  };
+  return config;
+});
 
 const queryClient = new QueryClient({
   defaultOptions: {
