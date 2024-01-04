@@ -1,3 +1,7 @@
+## [1.0.3] - 2024-01-04
+
+-   used post method for add product
+
 ## [1.0.2] - 2023-12-20
 
 -   Added header to axios instance
